@@ -7,8 +7,12 @@ public abstract class Transformation {
   }
 
   public Transformation(float x, float y, float z) {
+    this(x, y, z, 0, 0, 0);
+  }
+
+  public Transformation(float x, float y, float z, float dx, float dy, float dz) {
     fValue = new PVector(x, y, z);
-    fDelta = new PVector(0, 0, 0);
+    fDelta = new PVector(dx, dy, dz);
   }
 
   public void setDelta(float x, float y, float z) {
