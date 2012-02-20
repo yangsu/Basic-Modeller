@@ -8,7 +8,7 @@ public class Rotate extends Transformation {
     super(x, y, z);
   }
 
-  public void apply() {
+  public void transform() {
     rotateX(fValue.x);
     rotateY(fValue.y);
     rotateZ(fValue.z);

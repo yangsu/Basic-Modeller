@@ -8,7 +8,7 @@ public class Scale extends Transformation {
     super(x, y, z);
   }
 
-  public void apply() {
+  public void transform() {
     scale(fValue.x, fValue.y, fValue.z);
   }
 

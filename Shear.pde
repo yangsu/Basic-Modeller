@@ -12,7 +12,7 @@ public class Shear extends Transformation {
     super(x, y, z);
   }
 
-  public void apply() {
+  public void transform() {
     shearX(fValue.x);
     shearY(fValue.y);
   }
