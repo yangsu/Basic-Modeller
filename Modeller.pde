@@ -79,20 +79,43 @@ void readConfig() {
             if (key.equals("scale")) {
               if (vals.length == 2)
                 n.addTransformation(new Scale(readFloat(vals)));
-              else
+              else if (vals.length == 4)
                 n.addTransformation(new Scale(readFloat(vals, 1),
                                               readFloat(vals, 2),
                                               readFloat(vals, 3)));
+              else if (vals.length == 7)
+                n.addTransformation(new Scale(readFloat(vals, 1),
+                                              readFloat(vals, 2),
+                                              readFloat(vals, 3),
+                                              readFloat(vals, 4),
+                                              readFloat(vals, 5),
+                                              readFloat(vals, 6)));
             }
             if (key.equals("translate")) {
+              if (vals.length == 4)
                 n.addTransformation(new Translate(readFloat(vals, 1),
                                                   readFloat(vals, 2),
                                                   readFloat(vals, 3)));
+              else if (vals.length == 7)
+                n.addTransformation(new Translate(readFloat(vals, 1),
+                                                  readFloat(vals, 2),
+                                                  readFloat(vals, 3),
+                                                  readFloat(vals, 4),
+                                                  readFloat(vals, 5),
+                                                  readFloat(vals, 6)));
             }
             if (key.equals("rotate")) {
+              if (vals.length == 4)
                 n.addTransformation(new Rotate(radians(readFloat(vals, 1)),
                                                radians(readFloat(vals, 2)),
                                                radians(readFloat(vals, 3))));
+              else if (vals.length == 7)
+                n.addTransformation(new Rotate(radians(readFloat(vals, 1)),
+                                               radians(readFloat(vals, 2)),
+                                               radians(readFloat(vals, 3)),
+                                               radians(readFloat(vals, 4)),
+                                               radians(readFloat(vals, 5)),
+                                               radians(readFloat(vals, 6))));
             }
             if (key.equals("shear")) {
                 n.addTransformation(new Shear(readFloat(vals, 1),
@@ -132,7 +155,7 @@ void setup() {
   readConfig();
   size(gW, gH, P3D);
   background(gBGColor);
-  // stroke(50);
+  stroke(50);
   // noLoop();
   gRoot.debug();
 }
@@ -156,7 +179,7 @@ void draw() {
          0.0, 0.0, 0.0, // centerX, centerY, centerZ
          0.0, 1.0, 0.0); // upX, upY, upZ
   drawAxis();
-  noStroke();
+  // noStroke();
   gRoot.draw();
 }
 
