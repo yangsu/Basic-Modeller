@@ -45,7 +45,8 @@ public class Node {
     for (Transformation t : fTransforms) {
       t.apply();
     }
-    fGeometry.draw();
+    if (fGeometry != null)
+      fGeometry.draw();
     for (Node n : fChildren) {
       n.draw();
     }
