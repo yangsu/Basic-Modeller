@@ -3,12 +3,15 @@ public class Node {
   private ArrayList<Transformation> fTransforms;
   private Geometry fGeometry;
 
-  public Node(Geometry g) {
+  public Node() {
     this.fChildren = new ArrayList<Node>();
     this.fTransforms = new ArrayList<Transformation>();
-    this.fGeometry = g;
+    this.fGeometry = null;
   }
 
+  public void setGeometry(Geometry g) {
+    this.fGeometry = g;
+  }
   public void addChild(Node n) {
     fChildren.add(n);
   }
