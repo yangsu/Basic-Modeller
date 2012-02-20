@@ -49,7 +49,6 @@ public class Node {
     for (Node n : fChildren) {
       n.draw();
     }
-    this.debug();
     popMatrix();
   }
 
