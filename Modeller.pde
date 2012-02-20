@@ -82,8 +82,11 @@ void readConfig() {
             }
             if (key.equals("parent")) {
               for (Node p : gNodes) {
-                if (p.getName().equals(vals[1]))
+                if (p.getName().equals(vals[1])) {
                   p.addChild(n);
+                  n.setParent(p);
+                  break;
+                }
               }
             }
           }
