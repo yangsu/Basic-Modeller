@@ -29,6 +29,14 @@ public abstract class Geometry {
 
   public void draw() {
     pushStyle();
+    if (gWireframe) {
+      fill(fColor);
+      noStroke();
+    }
+    else {
+      stroke(fColor);
+      noFill();
+    }
     this.drawGeometry();
     popStyle();
   }

@@ -2,6 +2,7 @@
 int gW, gH;
 color gBGColor;
 int gDefaultLevelOfDetail;
+boolean gWireframe;
 
 ArrayList<Node> gNodes;
 Node gRoot;
@@ -34,6 +35,8 @@ void readGlobals(String key, String vals[]) {
     gBGColor = readColor(vals);
   if (key.equals("defaultLevelOfDetail"))
     gDefaultLevelOfDetail = readInt(vals);
+  if (key.equals("wireframe"))
+    gWireframe = readBoolean(vals);
 }
 
 void readConfig() {
@@ -154,8 +157,6 @@ void setup() {
   gNodes = new ArrayList<Node>();
   readConfig();
   size(gW, gH, P3D);
-  background(gBGColor);
-  stroke(50);
   // noLoop();
   gRoot.debug();
 }
@@ -172,16 +173,28 @@ void drawAxis() {
 }
 void draw() {
   lights();
-  background(0);
+  background(gBGColor);
 
   // Change height of the camera with mouseY
   camera(mouseX - width/2, mouseY - height/2, 220.0, // eyeX, eyeY, eyeZ
          0.0, 0.0, 0.0, // centerX, centerY, centerZ
          0.0, 1.0, 0.0); // upX, upY, upZ
   drawAxis();
-  // noStroke();
   gRoot.draw();
 }
 
 void keyPressed() {
+  switch(key) {
+    case 'w':
+      gWireframe = !gWireframe;
+      break;
+  }
+  switch(keyCode) {
+    case UP:
+      gDefaultLevelOfDetail++;
+      break;
+    case DOWN:
+      gDefaultLevelOfDetail--;
+      break;
+  }
 }
