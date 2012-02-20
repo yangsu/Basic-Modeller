@@ -68,8 +68,14 @@ void readConfig() {
               g.setDetail(readInt(vals));
             if (key.equals("color") && g != null)
               g.setColor(readColor(vals));
-            if (key.equals("size") && g != null)
-              g.setSize(readFloat(vals));
+            if (key.equals("size") && g != null) {
+              if (vals.length == 2)
+                g.setSize(readFloat(vals));
+              else
+                g.setSize(readFloat(vals, 1),
+                          readFloat(vals, 2),
+                          readFloat(vals, 3));
+            }
             if (key.equals("scale")) {
               if (vals.length == 2)
                 n.addTransformation(new Scale(readFloat(vals)));
@@ -84,9 +90,9 @@ void readConfig() {
                                                   readFloat(vals, 3)));
             }
             if (key.equals("rotate")) {
-                n.addTransformation(new Rotate(readFloat(vals, 1),
-                                               readFloat(vals, 2),
-                                               readFloat(vals, 3)));
+                n.addTransformation(new Rotate(radians(readFloat(vals, 1)),
+                                               radians(readFloat(vals, 2)),
+                                               radians(readFloat(vals, 3))));
             }
             if (key.equals("shear")) {
                 n.addTransformation(new Shear(readFloat(vals, 1),
