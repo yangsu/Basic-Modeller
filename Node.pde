@@ -56,7 +56,8 @@ public class Node {
   public void debug() {
     println("Node: " + fName);
     println("Parent: " + ((fParent == null) ? "null" : fParent.getName()));
-    fGeometry.debug();
+    if (fGeometry != null)
+      fGeometry.debug();
     for (Transformation t : fTransforms)
       t.debug();
     for (Node n : fChildren)
