@@ -1,9 +1,7 @@
 public abstract class Geometry {
-  protected float fSize;
   protected color fColor;
 
-  public Geometry(float size, color c) {
-    this.fSize = size;
+  public Geometry(color c) {
     this.fColor = c;
   }
 
