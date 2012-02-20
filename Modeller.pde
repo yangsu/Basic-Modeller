@@ -59,15 +59,18 @@ void readConfig() {
               else if (vals[1].equals("box"))
                 g = new Box();
 
-              if (c != -1) {
+              // Attach color and geometry
+              if (c != -1)
                 g.setColor(c);
-              }
               n.setGeometry(g);
             }
-            if (key.equals("color") && g != null) {
+            if (key.equals("detail") && g != null)
+              g.setDetail(readInt(vals));
+            if (key.equals("color") && g != null)
               g.setColor(readColor(vals));
-            }
-            if (key.equals("size")) {
+            if (key.equals("size") && g != null)
+              g.setSize(readFloat(vals));
+            if (key.equals("scale")) {
               if (vals.length == 2)
                 n.addTransformation(new Scale(readFloat(vals)));
               else
@@ -79,6 +82,15 @@ void readConfig() {
                 n.addTransformation(new Translate(readFloat(vals, 1),
                                                   readFloat(vals, 2),
                                                   readFloat(vals, 3)));
+            }
+            if (key.equals("rotate")) {
+                n.addTransformation(new Rotate(readFloat(vals, 1),
+                                               readFloat(vals, 2),
+                                               readFloat(vals, 3)));
+            }
+            if (key.equals("shear")) {
+                n.addTransformation(new Shear(readFloat(vals, 1),
+                                              readFloat(vals, 2)));
             }
             if (key.equals("parent")) {
               for (Node p : gNodes) {
@@ -114,12 +126,30 @@ void setup() {
   readConfig();
   size(gW, gH, P3D);
   background(gBGColor);
-  smooth();
+  stroke(50);
+  // noLoop();
+  gRoot.debug();
 }
 
 void draw() {
   lights();
+  background(0);
+
+  // Change height of the camera with mouseY
+  camera(mouseX - width/2, mouseY - height/2, 220.0, // eyeX, eyeY, eyeZ
+         0.0, 0.0, 0.0, // centerX, centerY, centerZ
+         0.0, 1.0, 0.0); // upX, upY, upZ
+
+  stroke(0,0, 255);
+  line(-100, 0, 0, 100, 0, 0);
+  stroke(0,255,0);
+  line(0, -100, 0, 0, 100, 0);
+  stroke(255,0,0);
+  line(0, 0, -100, 0, 0, 100);
+
+  stroke(50);
   gRoot.draw();
+
 }
 
 void keyPressed() {
