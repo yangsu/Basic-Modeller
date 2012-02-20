@@ -11,4 +11,8 @@ public class Scale extends Transformation {
   public void apply() {
     scale(fValue.x, fValue.y, fValue.z);
   }
+
+  public void debug() {
+    println("Transformation: scale("+fValue.x+", "+fValue.y+", "+fValue.z+")");
+  }
 }

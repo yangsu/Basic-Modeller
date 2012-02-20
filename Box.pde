@@ -4,4 +4,9 @@ public class Box extends Geometry {
     fill(fColor);
     box(1);
   }
+
+  public void debug() {
+    println("Geometry: Box");
+    println("color: "+red(fColor)+","+green(fColor)+","+blue(fColor));
+  }
 }

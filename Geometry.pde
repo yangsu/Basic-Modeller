@@ -22,4 +22,6 @@ public abstract class Geometry {
     this.drawGeometry();
     popStyle();
   }
+
+  public abstract void debug();
 }

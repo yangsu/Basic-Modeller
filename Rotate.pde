@@ -13,4 +13,8 @@ public class Rotate extends Transformation {
     rotateY(fValue.y);
     rotateZ(fValue.z);
   }
+
+  public void debug() {
+    println("Transformation: rotate("+fValue.x+", "+fValue.y+", "+fValue.z+")");
+  }
 }

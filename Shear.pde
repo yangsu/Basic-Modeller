@@ -12,4 +12,8 @@ public class Shear extends Transformation {
     shearX(fValue.x);
     shearY(fValue.y);
   }
+
+  public void debug() {
+    println("Transformation: shear("+fValue.x+", "+fValue.y+")");
+  }
 }

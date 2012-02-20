@@ -10,4 +10,5 @@ public abstract class Transformation {
   }
 
   public abstract void apply();
+  public abstract void debug();
 }

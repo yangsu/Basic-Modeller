@@ -11,4 +11,8 @@ public class Translate extends Transformation {
   public void apply() {
     translate(fValue.x, fValue.y, fValue.z);
   }
+
+  public void debug() {
+    println("Transformation: translate("+fValue.x+", "+fValue.y+", "+fValue.z+")");
+  }
 }

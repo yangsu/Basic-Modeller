@@ -52,4 +52,13 @@ public class Node {
     popMatrix();
   }
 
+  public void debug() {
+    println("Node: " + fName);
+    println("Parent: " + ((fParent == null) ? "null" : fParent.getName()));
+    fGeometry.debug();
+    for (Transformation t : fTransforms)
+      t.debug();
+    for (Node n : fChildren)
+      n.debug();
+  }
 }
