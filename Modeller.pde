@@ -126,11 +126,21 @@ void setup() {
   readConfig();
   size(gW, gH, P3D);
   background(gBGColor);
-  stroke(50);
+  // stroke(50);
   // noLoop();
   gRoot.debug();
 }
 
+void drawAxis() {
+  pushStyle();
+  stroke(0,0, 255);
+  line(-100, 0, 0, 100, 0, 0);
+  stroke(0,255,0);
+  line(0, -100, 0, 0, 100, 0);
+  stroke(255,0,0);
+  line(0, 0, -100, 0, 0, 100);
+  popStyle();
+}
 void draw() {
   lights();
   background(0);
@@ -139,17 +149,9 @@ void draw() {
   camera(mouseX - width/2, mouseY - height/2, 220.0, // eyeX, eyeY, eyeZ
          0.0, 0.0, 0.0, // centerX, centerY, centerZ
          0.0, 1.0, 0.0); // upX, upY, upZ
-
-  stroke(0,0, 255);
-  line(-100, 0, 0, 100, 0, 0);
-  stroke(0,255,0);
-  line(0, -100, 0, 0, 100, 0);
-  stroke(255,0,0);
-  line(0, 0, -100, 0, 0, 100);
-
-  stroke(50);
+  drawAxis();
+  noStroke();
   gRoot.draw();
-
 }
 
 void keyPressed() {
