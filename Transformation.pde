@@ -1,5 +1,5 @@
 public abstract class Transformation {
-  private PVector fValue;
+  protected PVector fValue;
 
   public Transformation(float value) {
     this(value, 0, 0);
