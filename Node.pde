@@ -1,11 +1,11 @@
 public class Node {
-  private Arraylist<Node> fChildren;
-  private Arraylist<Transformation> fTransforms;
+  private ArrayList<Node> fChildren;
+  private ArrayList<Transformation> fTransforms;
   private Geometry fGeometry;
 
   public Node(Geometry g) {
-    this.fChildren = new Arraylist<Node>();
-    this.fTransforms = new Arraylist<Transformation>();
+    this.fChildren = new ArrayList<Node>();
+    this.fTransforms = new ArrayList<Transformation>();
     this.fGeometry = g;
   }
 
