@@ -1,7 +1,11 @@
 public class Shear extends Transformation {
 
   public Shear(float value) {
-    super(value);
+    this(value, value, 0);
+  }
+
+  public Shear(float x, float y) {
+    this(x, y, 0);
   }
 
   public Shear(float x, float y, float z) {
